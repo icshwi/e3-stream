@@ -2,7 +2,7 @@
 
 #where_am_I := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-include $(REQUIRE_TOOLS)/driver.makefile
+include $(E3_REQUIRE_TOOLS)/driver.makefile
 
 #APP:=modbusApp
 #APPDB:=$(APP)/Db
@@ -61,3 +61,7 @@ include $(REQUIRE_TOOLS)/driver.makefile
 # TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.template)
 # TEMPLATES += $(wildcard $(MRMSHAREDDB)/*.substitutions)
 
+
+# db rule is the default in RULES_E3, so add the empty one
+
+db:

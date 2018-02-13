@@ -1,0 +1,16 @@
+diff --git StreamDevice/streamApp/Makefile StreamDevice/streamApp/Makefile
+index 1981c42..e44b95c 100644
+--- StreamDevice/streamApp/Makefile
++++ StreamDevice/streamApp/Makefile
+@@ -42,9 +42,10 @@ ifneq ($(words $(CALC) $(SYNAPPS)), 0)
+ # With synApps scalcout record
+ streamApp_DBD += calcSupport.dbd
+ streamApp_DBD += streamSynApps.dbd
++PROD_LIBS += seq
++PROD_LIBS += sscan
+ PROD_LIBS += calc
+ # older calc versions require sscan
+-#PROD_LIBS += sscan
+ PROD_LIBS_DEFAULT += streamSynApps
+ endif
+ 

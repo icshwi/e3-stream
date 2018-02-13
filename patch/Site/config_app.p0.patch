@@ -1,0 +1,42 @@
+diff --git configure/CONFIG_APP configure/CONFIG_APP
+index b1f4ba1..b0e9103 100644
+--- configure/CONFIG_APP
++++ configure/CONFIG_APP
+@@ -1,20 +1,35 @@
+ # CONFIG_APP
+ 
++RULES=$(EPICS_BASE)
++
+ include $(TOP)/configure/RELEASE
+ -include $(TOP)/configure/RELEASE.$(EPICS_HOST_ARCH)
++-include $(TOP)/configure/RELEASE.$(EPICS_HOST_ARCH).Common
++ifdef T_A
+ -include $(TOP)/configure/RELEASE.Common.$(T_A)
+ -include $(TOP)/configure/RELEASE.$(EPICS_HOST_ARCH).$(T_A)
++endif
++
+ 
+-CONFIG=$(EPICS_BASE)/configure
++CONFIG=$(RULES)/configure
+ include $(CONFIG)/CONFIG
+ 
++
++# Override for definition in base
+ INSTALL_LOCATION = $(TOP)
+ ifdef INSTALL_LOCATION_APP
+ INSTALL_LOCATION = $(INSTALL_LOCATION_APP)
+ endif
+ 
++include $(TOP)/configure/CONFIG_SITE
++-include $(TOP)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH)
++-include $(TOP)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).Common
++
+ ifdef T_A
+--include $(TOP)/configure/O.$(T_A)/CONFIG_APP_INCLUDE
++ -include $(TOP)/configure/CONFIG_SITE.Common.$(T_A)
++ -include $(TOP)/configure/CONFIG_SITE.$(EPICS_HOST_ARCH).$(T_A)
++
++ -include $(TOP)/configure/O.$(T_A)/CONFIG_APP_INCLUDE
+ endif
+ 
+ # dbst based database optimization (default: NO)
