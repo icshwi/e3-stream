@@ -12,10 +12,7 @@
 #  export DRV_USBTMC
 #endif
 
-ifdef T_A
- BUILD_PCRE=YES
 
- #Comment both of these lines out to disable regex support
- PCRE_LIB=$(TOP)/lib/$(T_A)
- PCRE_INCLUDE=$(TOP)/include
+ifeq (linux-ppc64e6500, $(T_A))
+   BUILD_PCRE=YES
 endif

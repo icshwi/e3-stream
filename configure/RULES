@@ -9,6 +9,7 @@ include $(TOP)/configure/E3/RULES_EPICS
 include $(TOP)/configure/E3/RULES_DB
 include $(TOP)/configure/E3/RULES_VARS
 
+include $(TOP)/configure/E3/RULES_PCRE
 
 ifneq (,$(findstring dev,$(MAKECMDGOALS)))
 include $(TOP)/configure/E3/RULES_DEV

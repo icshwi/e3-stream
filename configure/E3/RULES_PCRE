@@ -1,0 +1,16 @@
+# One should define the any dependency modules and EPICS base path
+# in the following directory
+
+.PHONY: pcre pcre-clean
+
+pcre:
+ifeq (linux-ppc64e6500, $(T_A))
+	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH)/pcre BUILD_PCRE=$(BUILD_PCRE)"
+endif	    
+
+pcre-clean:
+ifeq (linux-ppc64e6500, $(T_A))
+	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH)/pcre clean"
+endif
+
+

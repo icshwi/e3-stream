@@ -1,6 +1,10 @@
 #
 EPICS_MODULE_NAME:=stream
-EPICS_MODULE_TAG:=tags/R2-7-7
+# R2-7-7 with community modification
+# https://github.com/epics-modules/stream
+# https://github.com/epics-modules/stream/commit/30136e3371ffe6bcf71790486cd38805362c9cd2
+# Sep 14, 2017
+EPICS_MODULE_TAG:=30136e3
 #
 E3_MODULE_VERSION:=2.7.7
 
