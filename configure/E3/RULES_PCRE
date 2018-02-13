@@ -3,14 +3,15 @@
 
 .PHONY: pcre pcre-clean
 
+# pcre building system has dependency upon the EPICS base
+
 pcre:
-ifeq (linux-ppc64e6500, $(T_A))
-	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH)/pcre BUILD_PCRE=$(BUILD_PCRE)"
-endif	    
+	$(QUIET)echo "EPICS_BASE=$(EPICS_BASE)" >> $(TOP)/$(E3_MODULE_SRC_PATH)/configure/RELEASE
+	$(MAKE) -C $(E3_MODULE_SRC_PATH)/pcre BUILD_PCRE=$(BUILD_PCRE)
+   
 
 pcre-clean:
-ifeq (linux-ppc64e6500, $(T_A))
-	$(SUDOBASH) "$(MAKE) -C $(E3_MODULE_SRC_PATH)/pcre clean"
-endif
+	$(MAKE) -C $(E3_MODULE_SRC_PATH)/pcre clean
+
 
 

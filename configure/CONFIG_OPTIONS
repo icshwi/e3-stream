@@ -12,7 +12,12 @@
 #  export DRV_USBTMC
 #endif
 
+# We always build PCRE based on stream repository no matter our HOST/TARGET
+# However, leave that option, in order to update the future demands
+# Tuesday, February 13 17:15:10 CET 2018, jhlee
 
-ifeq (linux-ppc64e6500, $(T_A))
-   BUILD_PCRE=YES
-endif
+# stream.Makefile
+# RULES_PCRE
+# RULES_E3
+
+BUILD_PCRE=YES
