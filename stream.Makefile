@@ -47,18 +47,6 @@ HEADERS += $(APPSRC)/StreamFormatConverter.h
 HEADERS += $(APPSRC)/StreamBuffer.h
 HEADERS += $(APPSRC)/StreamError.h
 
-#ifeq ($(BUILD_PCRE), YES)
-PCRE_LIB=$(PCRE)/O.$(T_A)
-PCRE_INCLUDE=$(PCRE)
-USR_INCLUDES += -I$(PCRE_INCLUDE)
-USR_LDFLAGS  += -L $(PCRE_LIB)
-USR_LDFLAGS += -lpcre
-USR_LDFLAGS += -Wl,-rpath=$(PCRE_LIB)
-#else
-#USR_LIBS += pcre
-#USR_LIBS += pcrecpp
-#endif
-
 
 StreamCore$(DEP): streamReferences 
 
